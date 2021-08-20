@@ -51,5 +51,6 @@ public class LapTimeManager : MonoBehaviour
 			MinuteBox.GetComponent<Text>().text = "" + MinuteCount + ":";
 		}
 
+		
 	}
 }

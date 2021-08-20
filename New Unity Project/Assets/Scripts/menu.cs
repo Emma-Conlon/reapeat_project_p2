@@ -8,7 +8,9 @@ public class menu : MonoBehaviour
  
     public void Level1()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("TrackA");
+        
     }
     public void Level2()
     {

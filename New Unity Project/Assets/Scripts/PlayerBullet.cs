@@ -9,23 +9,27 @@ public class PlayerBullet : MonoBehaviour
     private Transform firePoint;
     [SerializeField]
     private Rigidbody projectilePrefab;
+    public GameObject bullet;
     [SerializeField]
     private float launchForce = 700f;
     public AudioSource fire;
     private float velocity;
+    private Vector3 movement;
     private void Start()
     {
-        velocity = 100;
+
+
         fire.GetComponent<AudioSource>();
     }
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             fire.Play();
             LaunchProjectile();
             Debug.Log("Launched");
         }
+
     }
 
     /// <summary>
@@ -33,15 +37,35 @@ public class PlayerBullet : MonoBehaviour
     /// </summary>
     private void LaunchProjectile()
     {
-      
-            var projectileInstance = Instantiate(
+        movement = new Vector3(0.0f, 0.0f, velocity);
+        var projectileInstance = Instantiate(
                 projectilePrefab,
                 firePoint.position,
                 firePoint.rotation);
 
-            projectileInstance.AddForce(firePoint.forward * launchForce);
-        velocity = firePoint.forward.x * launchForce;
-        Debug.Log(velocity);
-       
+
+        projectileInstance.AddForce(firePoint.forward * launchForce * PlayerMove.motorForce);
+
+        Debug.Log("BulletSpeed" + projectileInstance.velocity);
+
+    }
+
+
+    /// <summary>
+    /// should destroy bullet if hit :) 
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        Destroy(bullet);
+        if (collision.gameObject.name == "PlayerBullet")
+        {
+
+            Destroy(bullet);
+            Debug.Log("BulletGone");
+        }
+
     }
 }
+    

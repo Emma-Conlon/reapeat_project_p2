@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 
 public class PowerUps : MonoBehaviour
@@ -16,6 +17,12 @@ public class PowerUps : MonoBehaviour
     public GameObject speedUp;
     public GameObject healthUp;
     public GameObject sheildp;
+    public GameObject sheildp2;
+    public GameObject sheildp3;
+    public AudioSource sound;
+    public GameObject sheildp5;
+    public GameObject sheildp4;
+    public GameObject forcefield;
     private float boostingtimer;
 
     public PlayerHealth ph;
@@ -23,7 +30,7 @@ public class PowerUps : MonoBehaviour
     {
         player.GetComponent<PlayerMove>();
         boosting = false;
-       
+        sound.GetComponent<AudioSource>();
         speedUp.GetComponent<Image>().enabled = false;
         sheildp.GetComponent<Image>().enabled = false;
         healthUp.GetComponent<Image>().enabled = false;
@@ -35,11 +42,13 @@ public class PowerUps : MonoBehaviour
      
             if (other.gameObject.CompareTag("Player"))
             {
-            random = Random.Range(1, 3);
+            //random = Random.Range(1, 3);
+            random = 1;
             Debug.Log("RANDOM " + random);
 
             if (random==3)
             {
+                sound.Play();
                 random = 0;
                 Debug.Log("Health");
                 health = true;
@@ -51,6 +60,7 @@ public class PowerUps : MonoBehaviour
             }
             if (random == 2)
             {
+                sound.Play();
                 speedUp.GetComponent<Image>().enabled = true;
                 random = 0;
                 Debug.Log("Speed");
@@ -62,11 +72,17 @@ public class PowerUps : MonoBehaviour
             }
             if (random == 1)
             {
+                sound.Play();
                 sheildp.GetComponent<Image>().enabled = true;
                 random = 0;
                 health = false;
                 speed = false;
                 sheild = true;
+                sheildp2.SetActive(true);
+                sheildp4.SetActive(true);
+                sheildp3.SetActive(true);
+                sheildp5.SetActive(true);
+                forcefield.SetActive(true);
                 Debug.Log("Sheild");
             }
           
@@ -118,15 +134,15 @@ public class PowerUps : MonoBehaviour
         if (speed)
             {
                 boostingtimer += Time.deltaTime;
-                player.motorForce = 3000;//doubles speed 
-                Debug.Log(player.motorForce);
+                PlayerMove.motorForce = 3000;//doubles speed 
+                Debug.Log(PlayerMove.motorForce);
                 Debug.Log(boostingtimer);
               
                 random = 0;
             boosting = false;
                 if (boostingtimer >= 3)
                 {
-                    player.motorForce = 1000;
+                PlayerMove.motorForce = 1000;
                     boostingtimer = 0;
                     speed = false;
                 speedUp.GetComponent<Image>().enabled = false;
@@ -141,14 +157,24 @@ public class PowerUps : MonoBehaviour
      
             if (sheild)
             {
-                boostingtimer += Time.deltaTime;
+            forcefield.SetActive(true);
+            sheildp2.SetActive(true);
+            sheildp3.SetActive(true);
+            sheildp4.SetActive(true);
+            sheildp5.SetActive(true);
+            boostingtimer += Time.deltaTime;
                 player.sheild = true;
                 random = 0;
                 Debug.Log(boostingtimer);
               
                 if (boostingtimer >= 3)
                 {
-                    player.sheild = false;
+                forcefield.SetActive(false);
+                sheildp2.SetActive(false);
+                sheildp3.SetActive(false);
+                sheildp4.SetActive(false);
+                sheildp5.SetActive(false);
+                player.sheild = false;
                 sheildp.GetComponent<Image>().enabled = false;
                 boostingtimer = 0;
                     sheild = false;

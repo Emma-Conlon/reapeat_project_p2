@@ -13,19 +13,21 @@ public class PlayerMove : MonoBehaviour
     public GameObject text;
     public ParticleSystem particle;
     public GameObject over;
+    public GameObject pause;
     public MeshRenderer wheels1;
     public MeshRenderer wheels2;
     public MeshRenderer wheels3;
     public MeshRenderer wheels4;
     public GameObject body;
-    private float horizontalInput;
-    private float verticalInput;
+    [SerializeField] public static float horizontalInput;
+    [SerializeField] public static float verticalInput;
     private float currentbreakforce;
     private float steeringAngle;
     private bool isBreaking;
     public bool sheild;
+    public bool pauseScreen;
 
-    [SerializeField] public float motorForce;
+    [SerializeField] public static float motorForce;
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteeringAngle;
     [SerializeField] private WheelCollider frontleftWheelCollider;
@@ -42,7 +44,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
-        motorForce = 1000;
+        motorForce = 10000;
         currentHealth = maxHealth;
         health.SetMaxHealth(maxHealth);
         sheild = false;
@@ -71,11 +73,18 @@ public class PlayerMove : MonoBehaviour
             }
             
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+          
+            pause.SetActive(true);//shows end page
+            Time.timeScale = 0f;
+        }
+       
         if (currentHealth <= 0)
         {
             over.SetActive(true);//shows end page
             boostingtimer = +Time.deltaTime;
-            Debug.Log(boostingtimer);
+
             particle.enableEmission = true;
             particle.Play();
             //wheels.SetActive(false);//shows end page

@@ -24,7 +24,7 @@ public class results : MonoBehaviour
     //public GameObject aiMilliDisplay;
      private void Start()
      {
-       
+        //PositionManager.placement = 2;
         first.GetComponent<Text>().text =  "1stPlace";//change 
         second.GetComponent<Text>().text = "2ndPlace";//change 
         playerwon = false;
@@ -34,19 +34,16 @@ public class results : MonoBehaviour
     // Start is called before the first frame update
     void resultsGrid()
     {
-       
-        if (PositionManager.placement == 1)
+        Debug.Log("ResultsSec" + UpPOS.Place);
+
+        if (PositionManager.placement == 1|| UpPOS.Place==1)
             {
             playerwon = true;
-           // Debug.Log("ResultsSec" + LapTimeManager.MinuteCount);
             first.GetComponent<Text>().text = "Player";//change 
-            
-            
-           
             second.GetComponent<Text>().text = "AI";//change 
-            }
+        }
 
-            if (PositionManager.placement == 2)
+            if (PositionManager.placement == 2|| UpPOS.Place==2)
             {
             playerwon = false;
                 first.GetComponent<Text>().text = "AI";//change 

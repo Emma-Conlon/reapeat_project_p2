@@ -12,13 +12,13 @@ public class RaceOver : MonoBehaviour
     private bool lost;
     public void FixedUpdate()
     {
-        if(up.Place==1)
+        if(UpPOS.Place==1)
         {
-            Placement.GetComponent<Text>().text ="YOU WON\nPosition:"+up.Place+"st";//change 
+            Placement.GetComponent<Text>().text ="YOU WON\nPosition:"+ UpPOS.Place+"st";//change 
         }
-        if(up.Place==2)
+        if(UpPOS.Place==2)
         {
-            Placement.GetComponent<Text>().text = "YOU Lost\nPosition:" + up.Place + "nd";//change 
+            Placement.GetComponent<Text>().text = "YOU Lost\nPosition:" + UpPOS.Place + "nd";//change 
         }
        // Placement.GetComponent<Text>().text = up.Place;//change 
     }
@@ -32,6 +32,15 @@ public class RaceOver : MonoBehaviour
     {
         SceneManager.LoadScene("TrackA");
       
+        Time.timeScale = 1f;
+        LapTimeManager.MinuteCount = 0;
+        LapTimeManager.SecondCount = 0;
+        LapTimeManager.MilliCount = 0;
+    }
+    public void Resume()
+    {
+        
+
         Time.timeScale = 1f;
 
     }

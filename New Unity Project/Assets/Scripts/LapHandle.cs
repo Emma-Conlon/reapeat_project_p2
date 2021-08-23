@@ -30,13 +30,9 @@ public class LapHandle : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        pl.tag = "Player";
-        other.tag = pl.tag;
-        if (other.gameObject.CompareTag("Player"))
-             {
 
-
-
+        if (other.tag == "Player")
+        {
             ///checks to see all checkpoints have been passed 
             if (lap.CheckpointIndex == checkpointamt&& lap.lapNumber<=3)
             {

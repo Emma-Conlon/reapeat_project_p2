@@ -7,24 +7,79 @@ using UnityEngine;
 public class CheckPointSingle : MonoBehaviour
 {
     public int index;
-  
-    public LapTrigger lap;
+    public int rindex;
+    public LapTrigger[] lap;
    public AILapTrigger AIlap;
-    public GameObject pl;
+    public GameObject[] pl;
+    public playerSkin skin;
     void Start()
     {
-        lap.GetComponent<LapTrigger>();
+        if (skin.choose == 0)
+        {
+            lap[0].GetComponent<LapTrigger>();
+        }
+        if (skin.choose == 1)
+        {
+            lap[1].GetComponent<LapTrigger>();
+        }
+        if (skin.choose == 2)
+        {
+            lap[2].GetComponent<LapTrigger>();
+        }
+        if (skin.choose == 3)
+        {
+            lap[3].GetComponent<LapTrigger>();
+        }
+        if (skin.choose == 4)
+        {
+            lap[4].GetComponent<LapTrigger>();
+        }
+           
+       
+       
         AIlap.GetComponent<AILapTrigger>();
     }
     private  void OnTriggerEnter(Collider other)
     {
-        other.tag = pl.tag;
-        pl.tag = "Player";
-        if (other.gameObject.CompareTag("Player"))
-        {
 
-            lap.CheckpointIndex = index;
-            Debug.Log("PlayerWentThrough" + lap.CheckpointIndex);
+        if (other.tag == "Player")
+        { 
+            if(skin.choose==0)
+            {
+                if (lap[0].CheckpointIndex==rindex+1 || lap[0].CheckpointIndex==rindex-1)
+                {
+                    lap[0].CheckpointIndex = rindex;
+                    Debug.Log("RedPlayerWentThrough" + rindex);
+                }
+            
+
+            }
+            if (skin.choose == 1)
+            {
+                lap[1].CheckpointIndex = index;
+                Debug.Log("BluePlayerWentThrough" + lap[1].CheckpointIndex);
+
+            }
+            if (skin.choose == 2)
+            {
+                lap[2].CheckpointIndex = index;
+                Debug.Log("YellowPlayerWentThrough" + lap[2].CheckpointIndex);
+
+            }
+            if (skin.choose == 3)
+            {
+                lap[3].CheckpointIndex = index;
+                Debug.Log("BlackPlayerWentThrough" + lap[3].CheckpointIndex);
+
+            }
+            if (skin.choose == 4)
+            {
+                lap[4].CheckpointIndex = index;
+
+                Debug.Log("GreyPlayerWentThrough" + lap[4].CheckpointIndex);
+
+            }
+         
         }
 
     }
@@ -37,7 +92,7 @@ public class CheckPointSingle : MonoBehaviour
     {
        
 
-        if (Col.gameObject.CompareTag("AI"))
+        if (Col.tag == "AI")
         {
 
              AIlap.AICheckpointIndex = index;

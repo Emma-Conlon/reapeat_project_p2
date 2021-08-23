@@ -153,7 +153,7 @@ public class WayPoint : MonoBehaviour
         //ai.tag = "AI";
         //other.tag = ai.tag;
        // if (other.gameObject.CompareTag("AI"))
-            if (other.tag=="carPos")
+            if (other.tag== "AI")
             {
             Debug.Log("cube");
             this.GetComponent<BoxCollider>().enabled = false;

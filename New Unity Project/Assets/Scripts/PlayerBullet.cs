@@ -51,21 +51,6 @@ public class PlayerBullet : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// should destroy bullet if hit :) 
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        Destroy(bullet);
-        if (collision.gameObject.name == "PlayerBullet")
-        {
-
-            Destroy(bullet);
-            Debug.Log("BulletGone");
-        }
-
-    }
+  
 }
     

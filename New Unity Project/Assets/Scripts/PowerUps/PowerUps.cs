@@ -9,7 +9,7 @@ public class PowerUps : MonoBehaviour
 {
     // Start is called before the first frame update
     public int random;
-    public PlayerMove player;
+    public PlayerMove[] player;
     public bool health;
     public bool speed;
     public bool sheild;
@@ -22,13 +22,34 @@ public class PowerUps : MonoBehaviour
     public AudioSource sound;
     public GameObject sheildp5;
     public GameObject sheildp4;
+    public playerSkin skin;
     public GameObject forcefield;
     private float boostingtimer;
 
     public PlayerHealth ph;
     void Start()
     {
-        player.GetComponent<PlayerMove>();
+        if (skin.choose == 0)
+        {
+            player[0].GetComponent<PlayerMove>();
+        }
+        if (skin.choose == 1)
+        {
+            player[1].GetComponent<PlayerMove>();
+        }
+        if (skin.choose == 2)
+        {
+            player[2].GetComponent<PlayerMove>();
+        }
+        if (skin.choose == 3)
+        {
+            player[3].GetComponent<PlayerMove>();
+        }
+        if (skin.choose == 4)
+        {
+            player[4].GetComponent<PlayerMove>();
+        }
+      
         boosting = false;
         sound.GetComponent<AudioSource>();
         speedUp.GetComponent<Image>().enabled = false;
@@ -38,10 +59,10 @@ public class PowerUps : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-      
-     
-            if (other.gameObject.CompareTag("Player"))
-            {
+
+
+        if (other.tag == "Player")
+        {
             //random = Random.Range(1, 3);
             random = 1;
             Debug.Log("RANDOM " + random);
@@ -56,7 +77,7 @@ public class PowerUps : MonoBehaviour
                 healthUp.GetComponent<Image>().enabled = true;
                 sheild = false;
                 Health();
-                Debug.Log(player.currentHealth);
+                
             }
             if (random == 2)
             {
@@ -101,8 +122,33 @@ public class PowerUps : MonoBehaviour
         if (health)
         {
             boostingtimer += Time.deltaTime;
-            player.currentHealth += 20;
-            ph.SetHealth(player.currentHealth);
+            if (skin.choose == 0)
+            {
+                player[0].currentHealth += 20;
+                ph.SetHealth(player[0].currentHealth);
+            }
+            if (skin.choose == 1)
+            {
+                player[1].currentHealth += 20;
+                ph.SetHealth(player[1].currentHealth);
+            }
+            if (skin.choose == 2)
+            {
+                player[2].currentHealth += 20;
+                ph.SetHealth(player[2].currentHealth);
+            }
+            if (skin.choose == 3)
+            {
+                player[3].currentHealth += 20;
+                ph.SetHealth(player[3].currentHealth);
+            }
+            if (skin.choose == 4)
+            {
+                player[4].currentHealth += 20;
+                ph.SetHealth(player[4].currentHealth);
+            }
+
+         
             
            
 
@@ -163,8 +209,33 @@ public class PowerUps : MonoBehaviour
             sheildp4.SetActive(true);
             sheildp5.SetActive(true);
             boostingtimer += Time.deltaTime;
-                player.sheild = true;
-                random = 0;
+            if (skin.choose == 0)
+            {
+                player[0].sheild = true;
+
+            }
+            if (skin.choose == 1)
+            {
+                player[1].sheild = true;
+
+            }
+            if (skin.choose == 2)
+            {
+                player[2].sheild = true;
+
+            }
+            if (skin.choose == 3)
+            {
+                player[3].sheild = true;
+                
+            }
+            if (skin.choose == 4)
+            {
+                player[4].sheild = true;
+               
+
+            }
+            random = 0;
                 Debug.Log(boostingtimer);
               
                 if (boostingtimer >= 3)
@@ -173,8 +244,34 @@ public class PowerUps : MonoBehaviour
                 sheildp2.SetActive(false);
                 sheildp3.SetActive(false);
                 sheildp4.SetActive(false);
+                if (skin.choose == 0)
+                {
+                    player[0].sheild = false;
+
+                }
+                if (skin.choose == 1)
+                {
+                    player[1].sheild = false;
+
+                }
+                if (skin.choose == 2)
+                {
+                    player[2].sheild = false;
+
+                }
+                if (skin.choose == 3)
+                {
+                    player[3].sheild = false;
+
+                }
+                if (skin.choose == 4)
+                {
+                    player[4].sheild = false;
+
+
+                }
                 sheildp5.SetActive(false);
-                player.sheild = false;
+              
                 sheildp.GetComponent<Image>().enabled = false;
                 boostingtimer = 0;
                     sheild = false;

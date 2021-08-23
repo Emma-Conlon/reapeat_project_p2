@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     public float playerDistance;
+    public int scorer;
     public int maxHealth = 100;
     public int currentHealth;
     private const string HORIZONTAL = "Horizontal";
     private const string VERTICAL = "Vertical";
     public GameObject text;
     public ParticleSystem particle;
+    public int choose;
     public GameObject over;
     public GameObject pause;
     public MeshRenderer wheels1;
@@ -44,6 +46,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
+        scorer = 0;
         motorForce = 10000;
         currentHealth = maxHealth;
         health.SetMaxHealth(maxHealth);

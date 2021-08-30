@@ -26,7 +26,11 @@ public class AIHealth : MonoBehaviour
 
    public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        if(!sheild)
+        {
+            currentHealth -= damage;
+        }
+      
         //health.SetHealth(currentHealth);
 
     }

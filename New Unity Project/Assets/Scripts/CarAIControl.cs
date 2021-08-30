@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// THIS ISNT MINE AT ALL ;-; I GOT THIS FROM UNITY 
+/// </summary>
 #pragma warning disable 649
 namespace UnityStandardAssets.Vehicles.Car
 {

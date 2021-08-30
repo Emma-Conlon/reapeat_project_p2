@@ -47,7 +47,7 @@ public class playerSkin : MonoBehaviour
         play[1].choose = choose;
         Debug.Log("blue car choosen " + play[1].choose);
         Time.timeScale = 1f;
-      
+        Ai.SetActive(true);
         blue.SetActive(true);
     }
     public void chooseYellow()
@@ -57,7 +57,7 @@ public class playerSkin : MonoBehaviour
         Debug.Log("yellow car choosen " + play[2].choose);
         done = true;
         Time.timeScale = 1f;
-       
+        Ai.SetActive(true);
         yellow.SetActive(true);
     }
     public void chooseBlack()
@@ -68,6 +68,7 @@ public class playerSkin : MonoBehaviour
         play[3].choose = choose;
         Debug.Log("black car choosen " + play[3].choose);
         black.SetActive(true);
+        Ai.SetActive(true);
     }
     public void chooseGrey()
     {
@@ -77,6 +78,7 @@ public class playerSkin : MonoBehaviour
         play[4].choose = choose;
         Debug.Log("grey car choosen " + play[4].choose);
         grey.SetActive(true);
+        Ai.SetActive(true);
     }
 
 }

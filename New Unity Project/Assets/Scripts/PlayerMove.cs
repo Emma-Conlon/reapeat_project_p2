@@ -171,7 +171,7 @@ public class PlayerMove : MonoBehaviour
         wheelTransform.position = pose;
     }
 
-    void TakeDamage(int damage)
+   public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         health.SetHealth(currentHealth);

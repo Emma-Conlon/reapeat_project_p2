@@ -31,12 +31,16 @@ public class MoveBullet : MonoBehaviour
 
         if (Col.tag == "AI")
         {
-
-            addScore();
+            if(carAI.sheild==false)//if the sheild powerup is on no score :D 
+            {
+                Debug.Log("AIHealth:" + carAI.currentHealth);
+                addScore();
+            }
+           
             score.GetComponent<Text>().text = "Score:" + scored.scorer.ToString();//change 
             damage();
             Destroy(this.gameObject);
-            Debug.Log("RedScore:"+scored);
+            Debug.Log("PlayerScore:"+scored);
            if(carAI.currentHealth<=0)
             {
                 over.SetActive(true);

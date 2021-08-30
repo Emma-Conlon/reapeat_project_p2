@@ -39,7 +39,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void Start()
     {
-        motorForce = 1000;
+        motorForce = 10000;
 
         boostingtimer = 0;
     }

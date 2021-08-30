@@ -63,8 +63,8 @@ public class PowerUps : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            //random = Random.Range(1, 3);
-            random = 1;
+            random = Random.Range(1, 4);
+            //random = 3;
             Debug.Log("RANDOM " + random);
 
             if (random==3)
@@ -281,7 +281,7 @@ public class PowerUps : MonoBehaviour
     }
     private void Update()
     {
-        Health();
+       // Health();
         Speed();
         Sheild();
     }

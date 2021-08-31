@@ -37,6 +37,16 @@ public class RaceOver : MonoBehaviour
         LapTimeManager.SecondCount = 0;
         LapTimeManager.MilliCount = 0;
     }
+
+    public void ReplayB()
+    {
+        SceneManager.LoadScene("TrackB");
+
+        Time.timeScale = 1f;
+        LapTimeManager.MinuteCount = 0;
+        LapTimeManager.SecondCount = 0;
+        LapTimeManager.MilliCount = 0;
+    }
     public void Resume()
     {
         

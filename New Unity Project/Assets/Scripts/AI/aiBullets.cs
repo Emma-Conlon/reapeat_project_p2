@@ -12,9 +12,10 @@ public class aiBullets : MonoBehaviour
     private float boostingtimer;
     public GameObject bullet;
     [SerializeField]
-    private float launchForce = 700f;
+    public float launchForce = 10f;
     public AudioSource fire;
     private float velocity;
+    
     private Vector3 movement;
     private void Start()
     {
@@ -52,7 +53,7 @@ public class aiBullets : MonoBehaviour
                 firePoint.rotation);
 
 
-        projectileInstance.AddForce(firePoint.forward * launchForce * PlayerMove.motorForce);
+        projectileInstance.AddForce(firePoint.forward * launchForce * 1000);
 
         Debug.Log("BulletSpeed" + projectileInstance.velocity);
     }

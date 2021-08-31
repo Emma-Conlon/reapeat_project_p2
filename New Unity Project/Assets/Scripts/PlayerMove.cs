@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private WheelCollider frontrightWheelCollider;
     [SerializeField] private WheelCollider backleftWheelCollider;
     [SerializeField] private WheelCollider backrightWheelCollider;
-
+    public results dth;
     [SerializeField] private Transform frontleftWheelTransform;
     [SerializeField] private Transform frontrightWheelTransform;
     [SerializeField] private Transform backleftWheelTransform;
@@ -47,7 +47,7 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         scorer = 0;
-        motorForce = 10000;
+        motorForce = 100000;
         currentHealth = maxHealth;
         health.SetMaxHealth(maxHealth);
         sheild = false;
@@ -175,5 +175,9 @@ public class PlayerMove : MonoBehaviour
     {
         currentHealth -= damage;
         health.SetHealth(currentHealth);
+        if(currentHealth<=0)
+        {
+            dth.playerdead = true;
+        }
     }
 }

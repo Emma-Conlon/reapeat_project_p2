@@ -50,7 +50,7 @@ public class LapHandle : MonoBehaviour
                     }
                     if(PositionManager.placement == 2)
                     {
-                      //  timer.twoSecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
+                        timer.twoSecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
                     }
                 }
                 else
@@ -76,7 +76,7 @@ public class LapHandle : MonoBehaviour
                     }
                     if (PositionManager.placement == 2&&!timer.playerwon)
                     {
-                        //timer.twoMinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
+                        timer.twoMinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
                     }
                 }
                 else
@@ -89,7 +89,7 @@ public class LapHandle : MonoBehaviour
                     }
                     if (PositionManager.placement == 2)
                     {
-                       // MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
+                        MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
                     }
 
                 }
@@ -102,7 +102,7 @@ public class LapHandle : MonoBehaviour
                 }
                 if (PositionManager.placement == 2)
                 {
-                   // timer.twoMilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
+                    timer.twoMilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
                 }
 
                 LapTimeManager.MinuteCount = 0;

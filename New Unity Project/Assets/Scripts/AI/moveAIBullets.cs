@@ -9,11 +9,13 @@ public class moveAIBullets : MonoBehaviour
    // public PlayerHealth ph;
     //public GameObject score;
     public PlayerMove[] player;
+    private float boostingtimer;
     public int taken;
     public playerSkin skin;
    // public AIHealth carAI;
     public GameObject over;
-    //public ParticleSystem explode;
+    public results deth;
+    public ParticleSystem[] explode;
     private void Start()
     {
         taken = 5;
@@ -56,17 +58,29 @@ public class moveAIBullets : MonoBehaviour
             {
                 if (player[0].sheild == false)//if the sheild powerup is on no score :D 
                 {
+                  
                     Debug.Log("AIHealth:" + player[0].currentHealth);
+                    Debug.Log("redhit:" + player[0].currentHealth);
                     addScore();
                 }
 
 
                 damage();
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
                 if (player[0].currentHealth <= 0)
                 {
-                    over.SetActive(true);
-                    //player[4].SetActive(false);
+                    deth.playerdead = true;
+                    explode[0].Play();
+                    if (boostingtimer >= 3)
+                    {
+
+                        //over.SetActive(false);
+
+
+
+                    }
+                    //if (boostingtimer == 0)
+                        //over.SetActive(true);
 
                 }
             }
@@ -83,8 +97,18 @@ public class moveAIBullets : MonoBehaviour
                 Destroy(this.gameObject);
                 if (player[1].currentHealth <= 0)
                 {
-                    over.SetActive(true);
-                    //player[4].SetActive(false);
+                    deth.playerdead = true;
+                    explode[1].Play();
+                  
+                    if (boostingtimer >= 3)
+                    {
+                     
+
+
+
+                    }
+                   
+                        over.SetActive(true);
 
                 }
             }
@@ -92,7 +116,7 @@ public class moveAIBullets : MonoBehaviour
             {
                 if (player[2].sheild == false)//if the sheild powerup is on no score :D 
                 {
-                    Debug.Log("AIHealth:" + player[2].currentHealth);
+                    Debug.Log("RED:" + player[2].currentHealth);
                     addScore();
                 }
 
@@ -101,8 +125,18 @@ public class moveAIBullets : MonoBehaviour
                 Destroy(this.gameObject);
                 if (player[2].currentHealth <= 0)
                 {
-                    over.SetActive(true);
-                    //player[4].SetActive(false);
+                    deth.playerdead = true;
+                    explode[2].Play();
+                    if (boostingtimer >= 3)
+                    {
+                        
+                       
+
+
+
+                    }
+                    
+                        over.SetActive(true);
 
                 }
             }
@@ -119,7 +153,17 @@ public class moveAIBullets : MonoBehaviour
                 Destroy(this.gameObject);
                 if (player[3].currentHealth <= 0)
                 {
-                    over.SetActive(true);
+                    deth.playerdead = true;
+                    explode[3].Play();
+                    if (boostingtimer >= 3)
+                    {
+                  
+
+
+
+                    }
+                    
+                        over.SetActive(true);
                     //player[4].SetActive(false);
 
                 }
@@ -137,7 +181,19 @@ public class moveAIBullets : MonoBehaviour
                 Destroy(this.gameObject);
                 if (player[4].currentHealth <= 0)
                 {
-                    over.SetActive(true);
+                    if (boostingtimer >= 3)
+                    {
+                        deth.playerdead = true;
+                        explode[4].Play();
+                       
+                       
+
+
+                    }
+                 
+                        over.SetActive(true);
+
+
                     //player[4].SetActive(false);
 
                 }
@@ -153,12 +209,12 @@ public class moveAIBullets : MonoBehaviour
 
     private void Update()
     {
-       //// score.GetComponent<Text>().text = "Score:" + scored.scorer.ToString();//change 
-       // if (player.currentHealth <= 0)
-       // {
-       //     explode.Play();
-
-       // }
+        //// score.GetComponent<Text>().text = "Score:" + scored.scorer.ToString();//change 
+        // if (player.currentHealth <= 0)
+        // {
+        //     explode.Play();
+        boostingtimer += Time.deltaTime;
+        // }
     }
 
     /// <summary>

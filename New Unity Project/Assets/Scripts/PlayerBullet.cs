@@ -44,7 +44,7 @@ public class PlayerBullet : MonoBehaviour
                 firePoint.rotation);
 
 
-        projectileInstance.AddForce(firePoint.forward * launchForce * PlayerMove.motorForce);
+        projectileInstance.AddForce(firePoint.forward * launchForce * 10000);
 
         Debug.Log("BulletSpeed" + projectileInstance.velocity);
 

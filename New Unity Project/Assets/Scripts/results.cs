@@ -20,6 +20,7 @@ public class results : MonoBehaviour
     public GameObject twoSecondDisplay;
     public AIHealth car;
     public MoveBullet[] play;
+    public bool playerdead;
     public GameObject twoMilliDisplay;
     public bool playerwon;
     //public GameObject aiMinuteDisplay;
@@ -33,6 +34,7 @@ public class results : MonoBehaviour
         second.GetComponent<Text>().text = "2ndPlace";//change 
         score.GetComponent<Text>().text = "Score:";//change 
         playerwon = false;
+        //playerdead = true;
         resultsGrid();
         if (skin.choose == 0)
         {
@@ -87,7 +89,35 @@ public class results : MonoBehaviour
 
                 second.GetComponent<Text>().text = "AI";//change 
             }
-            if (PositionManager.placement == 1 || UpPOS.Place == 1)
+            if (playerdead)
+            {
+
+                playerwon = true;
+                first.GetComponent<Text>().text = "AI";//change 
+                if (skin.choose == 0)
+                {
+                    score.GetComponent<Text>().text = "Score:" + play[0].scored.ToString();//change 
+                }
+                if (skin.choose == 1)
+                {
+                    score.GetComponent<Text>().text = "Score:" + play[1].scored.ToString();//change 
+                }
+                if (skin.choose == 2)
+                {
+                    score.GetComponent<Text>().text = "Score:" + play[2].scored.ToString();//change 
+                }
+                if (skin.choose == 3)
+                {
+                    score.GetComponent<Text>().text = "Score:" + play[3].scored.ToString();//change 
+                }
+                if (skin.choose == 4)
+                {
+                    score.GetComponent<Text>().text = "Score:" + play[4].scored.ToString();//change         
+                }
+
+                second.GetComponent<Text>().text = "Player";//change 
+            }
+            if (PositionManager.placement == 1 || UpPOS.Place == 1||!playerdead)
             {
                 playerwon = true;
                 first.GetComponent<Text>().text = "Player";//change 
@@ -115,7 +145,7 @@ public class results : MonoBehaviour
                 second.GetComponent<Text>().text = "AI";//change 
             }
 
-            if (PositionManager.placement == 2 || UpPOS.Place == 2)
+            if (PositionManager.placement == 2 || UpPOS.Place == 2||playerdead)
             {
                 playerwon = false;
                 first.GetComponent<Text>().text = "AI";//change 

@@ -83,6 +83,7 @@ public class PowerUps : MonoBehaviour
             {
                 sound.Play();
                 speedUp.GetComponent<Image>().enabled = true;
+                healthUp.GetComponent<Image>().enabled = false;
                 random = 0;
                 Debug.Log("Speed");
                 health = false;
@@ -95,6 +96,7 @@ public class PowerUps : MonoBehaviour
             {
                 sound.Play();
                 sheildp.GetComponent<Image>().enabled = true;
+                healthUp.GetComponent<Image>().enabled = false;
                 random = 0;
                 health = false;
                 speed = false;

@@ -48,74 +48,74 @@ public class AIlapHandle : MonoBehaviour
                 info.SetActive(false);
                 Time.timeScale = 0f;
             }
-            if (LapTimeManager.SecondCount <= 9)
-            {
-                SecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
-                if (PositionManager.placement == 1)
-                {
-                    timer.oneSecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
+            //if (LapTimeManager.SecondCount <= 9)
+            //{
+            //    SecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
+            //    if (PositionManager.placement == 1)
+            //    {
+            //        timer.oneSecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
 
-                }
-                if (PositionManager.placement == 2)
-                {
-                    timer.twoSecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
-                }
-            }
-            else
-            {
-                SecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
-                if (PositionManager.placement == 1)
-                {
-                    timer.oneSecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
-                }
-                if (PositionManager.placement == 2)
-                {
-                    timer.twoSecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
-                }
-            }
+            //    }
+            //    if (PositionManager.placement == 2)
+            //    {
+            //        timer.twoSecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
+            //    }
+            //}
+            //else
+            //{
+            //    SecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
+            //    if (PositionManager.placement == 1)
+            //    {
+            //        timer.oneSecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
+            //    }
+            //    if (PositionManager.placement == 2)
+            //    {
+            //        timer.twoSecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
+            //    }
+            //}
 
-            if (LapTimeManager.MinuteCount <= 9)
-            {
-                MinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
-                if (PositionManager.placement == 1)
-                {
-                    timer.oneMinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
+            //if (LapTimeManager.MinuteCount <= 9)
+            //{
+            //    MinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
+            //    if (PositionManager.placement == 1)
+            //    {
+            //        timer.oneMinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
 
-                }
-                if (PositionManager.placement == 2 && !timer.playerwon)
-                {
-                    timer.twoMinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
-                }
-            }
-            else
-            {
-                MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
-                if (PositionManager.placement == 1)
-                {
-                    MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
+            //    }
+            //    if (PositionManager.placement == 2 && !timer.playerwon)
+            //    {
+            //        timer.twoMinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ".";
+            //    }
+            //}
+            //else
+            //{
+            //    MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
+            //    if (PositionManager.placement == 1)
+            //    {
+            //        MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
 
-                }
-                if (PositionManager.placement == 2)
-                {
-                    MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
-                }
+            //    }
+            //    if (PositionManager.placement == 2)
+            //    {
+            //        MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ".";
+            //    }
 
-            }
+            //}
 
-            MilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
-            if (PositionManager.placement == 1)
-            {
-                timer.oneMilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
+            //MilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
+            //if (PositionManager.placement == 1)
+            //{
+            //    timer.oneMilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
 
-            }
-            if (PositionManager.placement == 2)
-            {
-                timer.twoMilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
-            }
+            //}
+            //if (PositionManager.placement == 2)
+            //{
+            //    timer.twoMilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
+            //}
 
-            LapTimeManager.MinuteCount = 0;
-            LapTimeManager.SecondCount = 0;
-            LapTimeManager.MilliCount = 0;
+            //LapTimeManager.MinuteCount = 0;
+            //LapTimeManager.SecondCount = 0;
+            //LapTimeManager.MilliCount = 0;
 
         }
     }
